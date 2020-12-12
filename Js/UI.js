@@ -31,6 +31,32 @@ class UI {
       </div>
       `;
   }
+  // Show Alert
+  showAlert(message, className) {
+    // clear Alert
+    this.clearAlert();
+    // create div
+    const div = document.createElement("div");
+    // add class
+    div.className = className;
+    // addTextToDiv
+    div.appendChild(document.createTextNode(message));
+    //  get ui Element
+    const showAlert = document.querySelector(".showAlert");
+    // appended to it
+    showAlert.appendChild(div);
+    // remove alert after 3 seconds
+    setTimeout(() => {
+      this.clearAlert();
+    }, 3000);
+  }
+  // Clear Alert and show it once
+  clearAlert() {
+    const currentAlert = document.querySelector(".alert");
+    if (currentAlert) {
+      currentAlert.remove();
+    }
+  }
   // Clear Field
   clearField() {
     this.profile.innerHTML = "";

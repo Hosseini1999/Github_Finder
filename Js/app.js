@@ -10,7 +10,12 @@ searchUser.addEventListener("keyup", (e) => {
   if (userName !== "") {
     // Send Api Request and get user
     github.getUser(userName).then((user) => {
-      ui.showUser(user.profile);
+      if (user.profile.message === "Not Found") {
+        // ShowAlert
+        ui.showAlert("User Not Found", "alert alert-danger");
+      } else {
+        ui.showUser(user.profile);
+      }
     });
   } else {
     // Clear Field if there is no user
