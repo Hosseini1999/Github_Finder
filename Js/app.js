@@ -8,8 +8,12 @@ searchUser.addEventListener("keyup", (e) => {
   // get value from Input
   const userName = e.target.value;
   if (userName !== "") {
+    // Send Api Request and get user
     github.getUser(userName).then((user) => {
       ui.showUser(user.profile);
     });
+  } else {
+    // Clear Field if there is no user
+    ui.clearField();
   }
 });

@@ -31,4 +31,8 @@ class UI {
       </div>
       `;
   }
+  // Clear Field
+  clearField() {
+    this.profile.innerHTML = "";
+  }
 }
