@@ -9,7 +9,7 @@ searchUser.addEventListener("keyup", (e) => {
   const userName = e.target.value;
   if (userName !== "") {
     github.getUser(userName).then((user) => {
-      console.log(user);
+      ui.showUser(user.profile);
     });
   }
 });
