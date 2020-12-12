@@ -13,8 +13,10 @@ searchUser.addEventListener("keyup", (e) => {
       if (user.profile.message === "Not Found") {
         // ShowAlert
         ui.showAlert("User Not Found", "alert alert-danger");
+        ui.clearField();
       } else {
         ui.showUser(user.profile);
+        ui.showRepo(user.repos);
       }
     });
   } else {

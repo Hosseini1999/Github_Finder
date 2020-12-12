@@ -4,7 +4,8 @@ class UI {
     //   get div from ui : profile
     this.profile = document.getElementById("profile");
   }
-  //show users and their data in UI
+
+  //Show users and their data in UI
   showUser(user) {
     this.profile.innerHTML = `
       <div class="card card-body">
@@ -29,7 +30,31 @@ class UI {
           </div>
         </div>
       </div>
+      <h3 class="heading mt-4">Latesd Repos</h3>
+      <div id ="repos">
+      </div>
       `;
+  }
+  // Show Latest Repository
+  showRepo(repos) {
+    let outPut = "";
+    repos.forEach((repo) => {
+      outPut += `
+      <div class="card card-body">
+       <div class="row">
+         <div class="col-md-6">
+           <a herf="${repo.html_url}">${repo.name}</a>
+         </div>
+         <div class="col-md-6">
+              <span class="badge badge-primary mb-2 ">Stars : ${repo.stargazers_count}</span>
+              <span class="badge badge-secondary mb-2 ">Watchers : ${repo.watchers_count}</span>
+              <span class="badge badge-success mb-2 ">Forks : ${repo.forks}</span>
+         </div>
+       </div>
+      </div>
+      `;
+    });
+    document.getElementById("repos").innerHTML = outPut;
   }
   // Show Alert
   showAlert(message, className) {
