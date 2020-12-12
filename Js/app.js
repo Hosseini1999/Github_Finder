@@ -24,3 +24,5 @@ searchUser.addEventListener("keyup", (e) => {
     ui.clearField();
   }
 });
+
+/*END */
